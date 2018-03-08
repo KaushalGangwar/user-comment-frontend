@@ -1,0 +1,35 @@
+<div class="main container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4 main-content">
+           <div class="row text-center">
+               <h3>CONVERSATIONS</h3>
+           </div>
+            <div class="row chat-section">
+                <div class="col-xs-12 chat-box" ng-repeat="msg in main.messages track by $index">
+                              <span class="delete-main-comment"><span class="glyphicon glyphicon-trash" ng-click="main.deleteComment(msg,0)"></span></span>
+                    <span class="user-name">{{msg.username}}</span><br>
+                    <span class="chat-bubble">{{msg.comment}}</span>
+                    <div class="reply-box">
+                       <span ng-repeat="reply in msg.replies" ng-show="reply.is_active">
+                           <span class="user-name">{{msg.username}}</span><br>
+                           <span class="user-reply">
+                              <span class="delete-comment"><span class="glyphicon glyphicon-trash" ng-click="main.deleteComment(reply,1)"></span></span>
+                               {{reply.comment}}
+                           </span><br ng-if="!$last">
+                       </span>
+                        <div class="reply-option">
+                            <span class="user-name">You</span><br>
+                            <input type="text" placeholder="Type a reply!" class="reply-input" id="{{$index + '-reply'}}"><br>
+                            <button class="post-button" ng-click="main.reply($index + '-reply',$index)">Post</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 comment-div">
+                    <input type="text" placeholder="Post a comment!" class="reply-input" id="user-comment">
+                    <button class="post-button" ng-click="main.comment('user-comment')">Post</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

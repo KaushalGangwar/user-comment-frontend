@@ -1,0 +1,17 @@
+<div class="login-page">
+    <div class="login-div">
+        <div class="row">
+            <form novalidate name="form">
+            <div class="col-xs-12">
+                <input type="text" id="name" class="name" name="name" ng-model="login.user.name" placeholder="Name" required>
+            </div>
+            <div class="col-xs-12">
+                <input type="email" id="pass" class="pass" name="pass" ng-model="login.user.pass" placeholder="Email" required>
+            </div>
+            <div class="col-xs-12">
+                <button class="dark-btn" ng-disabled="form.$invalid" ng-click="login.validate()">LOGIN</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
